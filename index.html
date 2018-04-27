@@ -5,8 +5,6 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-
-
     $('#buttonClean').click(function(e) {  
         var PhNumbervalue = $("#PhNumber").val();
         var ClnPhNumber = PhNumbervalue.replace(/[^+\d]/g, '');
@@ -27,6 +25,7 @@ $(document).ready(function(){
 <body>
 <h1>Send Whatsapp Message to numbers without having to add a contact !</h1>
 
+<form>
 <h2> Step 1</h2>
       Insert the phone number to call : 
        <input type="text" value="+60-867-5 309" id="PhNumber"> 
@@ -37,5 +36,6 @@ $(document).ready(function(){
 <h2> Step 2</h2>       
        <button type="button" id="button">Send Hi!</button>
 
+</form>
 </body>
 </html>
