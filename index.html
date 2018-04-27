@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Send Message to Whatsapp User without adding contact</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+
+    $('#buttonClean').click(function(e) {  
+        var PhNumbervalue = $("#PhNumber").val();
+        var ClnPhNumber = PhNumbervalue.replace(/[^+\d]/g, '');
+         
+        $("#Link2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!");
+        
+    });
+    
+    $('#button').click(function(e) {  
+     
+        //window.location.replace("https://api.whatsapp.com/send?phone="+PhNumbervalue+"&text=Hi!");
+        window.location.replace($("#Link2Execute").val());
+    
+    });
+});
+</script> 
+</head>
+<body>
+<h1>Send Whatsapp Message to numbers without having to add a contact !</h1>
+
+<h2> Step 1</h2>
+      Insert the phone number to call : 
+       <input type="text" value="+60-867-5 309" id="PhNumber"> 
+       <button type="button" id="buttonClean">Clean Number & make Link</button>
+       
+       <br> <br>
+       Generated Link :         <input type="text" value="https://api.whatsapp.com/send?phone=+608675309&text=Hi!" id="Link2Execute" size="80"> 
+<h2> Step 2</h2>       
+       <button type="button" id="button">Send Hi!</button>
+
+</body>
+</html>
