@@ -2,7 +2,7 @@
 Send Whatsapp message to Phone Numbers without having to add them as Contacts
 
 ## Installation & Use
-No installation required, just click on [this link](https://www.facebook.com/)
+No installation required, just click on [this link](https://arun-ks.github.io/WhatsAppNonContactMesg/)
 
 
 Just click on the "Clean Number & make Link" to remove non-digit characters
