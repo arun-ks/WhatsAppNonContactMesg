@@ -6,7 +6,6 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
 <script type="text/javascript">
-
 $(document).ready(function(){
     $('#buttonClean').click(function(e) {  
         var PhNumbervalue = $("#PhNumber").val();
@@ -14,6 +13,9 @@ $(document).ready(function(){
          
         $("#Link2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!");
         
+         document.getElementById("button").disabled = false;
+         document.getElementById("button").value = "Click this";
+         
     });
     
     $('#button').click(function(e) {  
@@ -26,19 +28,20 @@ $(document).ready(function(){
 </script> 
 </head>
 <body>
-    <h1>Send Whatsapp Message to numbers </h1>
-    <h2>...without having to add a contact !</h2>
+    <h2>Send Whatsapp Message to numbers </h2>
+    <h3>...without having to add a contact !</h3>
 <br><br>
 <form>
 <h2> Step 1</h2>
-      Insert the phone number to Call. Include the Country Code : 
+      Insert the phone number message(Incl. the Country Code) : 
        <input type="text" value="+60-8675-3-0-9" id="PhNumber"> <br>
        <button type="button" id="buttonClean">Click here to Clean Number and make Link</button>
        
        <br> <br>
-       Generated Link :         <input type="text" value="Finish Step 1" id="Link2Execute" size="80"> 
+       Generated Link <i>(for verification)</i> :<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         <input type="text" value="Finish Step 1" id="Link2Execute" size="80"> 
 <h2> Step 2</h2>       
-       <button type="button" id="button">Click here to send Hi!</button>
+       <button type="button" id="button" disabled>Click here to send Hi!</button>
 
 </form>
 </body>
