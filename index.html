@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
-    <title>Send Message to Whatsapp User without adding contact</title>
-<!--script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script!-->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <title>Send Message to Whatsapp User without adding contact</title>    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css"> 
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#buttonClean').click(function(e) {  
@@ -14,12 +17,10 @@ $(document).ready(function(){
         $("#Link2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!");
         
          document.getElementById("button").disabled = false;
-         document.getElementById("button").value = "Click this";
-         
+         document.getElementById("button").value = "Click this";         
     });
     
-    $('#button').click(function(e) {  
-     
+    $('#button').click(function(e) {       
         //window.location.replace("https://api.whatsapp.com/send?phone="+PhNumbervalue+"&text=Hi!");
         window.location.replace($("#Link2Execute").val());
     
@@ -28,21 +29,19 @@ $(document).ready(function(){
 </script> 
 </head>
 <body>
-    <h2>Send Whatsapp Message to numbers </h2>
-    <h3>...without having to add a contact !</h3>
-<br><br>
-<form>
-<h2> Step 1</h2>
-      Insert the phone number message(Incl. the Country Code) : 
-       <input type="text" value="+60-8675-3-0-9" id="PhNumber"> <br>
-       <button type="button" id="buttonClean">Click here to Clean Number and make Link</button>
-       
-       <br> <br>
-       Generated Link <i>(for verification)</i> :<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         <input type="text" value="Finish Step 1" id="Link2Execute" size="80"> 
-<h2> Step 2</h2>       
-       <button type="button" id="button" disabled>Click here to send Hi!</button>
+	 <h2 class="w3-center">Send Whatsapp Message to numbers</h2>
+   <h3 class="w3-center">...without having to add a contact !</h3>
 
+<form class="w3-container">	
+   <div class="w3-panel w3-teal"> <p>Step 1</p> </div>  
+       Insert the phone number message(Incl. the Country Code) : 
+       <input class="w3-input w3-border w3-round-large"  type="text" value="+60-8675-3-0-9" id="PhNumber"> <br>
+       <button class="w3-btn w3-indigo" type="button" id="buttonClean">Click to Clean Number and make Link</button>
+       
+   <div class="w3-panel w3-teal"> <p>Step 1</p> </div>  
+       Generated Link <i>(for verification)</i> :<br>
+       <input class="w3-input w3-border w3-round-large"  type="text" value="Finish Step 1" id="Link2Execute" size="80">        
+       <button class="w3-btn w3-indigo" type="button" id="button" disabled>Click here to send Hi!</button>
 </form>
 </body>
 </html>
