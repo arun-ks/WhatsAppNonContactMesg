@@ -7,23 +7,33 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css"> 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="src/jquery.qrcode.js"></script>
+<script type="text/javascript" src="src/qrcode.js"></script>
+
+
 <script type="text/javascript">
 $(document).ready(function(){
     $('#buttonClean').click(function(e) {  
         var PhNumbervalue = $("#PhNumber").val();
         var ClnPhNumber = PhNumbervalue.replace(/[^+\d]/g, '');
          
-        $("#Link2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!");
+        $("#Link2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!"); 
+         
         
-         document.getElementById("button").disabled = false;
-         document.getElementById("button").value = "Click this";         
+        
+         document.getElementById("buttonMesg").disabled = false;
+         document.getElementById("buttonQrCd").disabled = false;
     });
     
-    $('#button').click(function(e) {       
+    $('#buttonMesg').click(function(e) {       
         //window.location.replace("https://api.whatsapp.com/send?phone="+PhNumbervalue+"&text=Hi!");
-        window.location.replace($("#Link2Execute").val());
+        window.location.replace($("#Link2Execute").val());    
+    });
     
+    $('#buttonQrCd').click(function(e) {       
+    	 $("#qrcodeCanvas").html("");  
+         jQuery('#qrcodeCanvas').qrcode( $("#Link2Execute").val());   
     });
 });
 </script> 
@@ -36,13 +46,24 @@ $(document).ready(function(){
    <div class="w3-panel w3-teal"> <p>Step 1</p> </div>  
        Insert the phone number message(Incl. the Country Code) : 
        <input class="w3-input w3-border w3-round-large"  type="text" value="+60-8675-3-0-9" id="PhNumber"> <br>
-       <button class="w3-btn w3-indigo" type="button" id="buttonClean">Click to Clean Number and make Link</button>
+       <button class="w3-btn w3-indigo" type="button" id="buttonClean">Click to Clean Number and make QR Code</button>
+
        
    <div class="w3-panel w3-teal"> <p>Step 2</p> </div>  
        Generated Link <i>(Verify if number is in the format:<b> +&lt;countrycode&gt;&lt;Rest of digits without space or hypens&gt;</b> ):</i><br>
        <input class="w3-input w3-border w3-round-large"  type="text" value="Finish Step 1" id="Link2Execute" size="80">        
-       <button class="w3-btn w3-indigo" type="button" id="button" disabled>Click here to send Hi!</button>
+       <button class="w3-btn w3-indigo" type="button" id="buttonMesg" disabled>Click to send "Hi!" on WhatsApp</button>
+
+    
+       <button class="w3-btn w3-indigo" type="button" id="buttonQrCd" disabled>Click to generate QR Code</button>
+
+<br>
+<br>
+<div id="qrcodeCanvas"></div>
 </form>
+
+
+
 <br><br><br><br><br><br>
 <div align="right"><font size="2" color="red"><a href="https://github.com/arun-ks/WhatsAppNonContactMesg">Source</a>   </font>  </div>
 </body>
