@@ -18,3 +18,5 @@ On 1 test, it had failed to work as required on Android's default internet explo
 ## How it works 
 The page, cleans up & formats the input phone number. This is then passed to [Whatsapp API](https://faq.whatsapp.com/en/android/26000030/).
 At the click of a button, the link is opened on WhatsApp.
+
+The page also uses [jquery.qrcode.js](http://jeromeetienne.github.io/jquery-qrcode/) to generate QR code. The QR code can be scanned to send Whatsapp message.
