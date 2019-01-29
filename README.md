@@ -8,7 +8,7 @@ Type in the phone number you want to message & click the button to send whatsapp
 
 Alternately, you can generate QR Code, to share with others users. Scaning this QR Code will allow them to send whatsapp messages too.
 
-**Note**: The phone number should have +<international prefix> included  
+**Note**: The phone number should have "international prefix" included  
    
 
 ## Limitations
