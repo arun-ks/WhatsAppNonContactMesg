@@ -1,10 +1,10 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
 	
-    <title>Send Message to Whatsapp User without adding contact</title>    
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Send Message to Whatsapp User without adding contact</title>    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
@@ -29,11 +29,10 @@
         // Add + as we had removed it earlier
         if(ClnPhNumber[0] !=  '+' )  ClnPhNumber="+"+ClnPhNumber;
               
-        $("#Link2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!"); 
+        $("#txtLink2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!"); 
         Link2Execute = "https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!";
         
-        // if (ClnPhNumber.length > 5) {
-         	
+        // if (ClnPhNumber.length > 5) {         	
   //       document.getElementById("buttonMesg").disabled = false;
          document.getElementById("buttonMesg").innerText  = "Click to send 'Hi!' to "+ClnPhNumber;
          document.getElementById("buttonQrCd").innerText =  "Click to generate QR Code to message " + ClnPhNumber;
@@ -44,7 +43,8 @@
 $(document).ready(function(){
   
     $('#buttonMesg').click(function(e) {       
-        window.location.replace($("#Link2Execute").val());    
+        //window.location.replace($("#Link2Execute").val()); 
+        window.location.replace($(Link2Execute);     
     });
     
     $('#buttonQrCd').click(function(e) {       
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
        <button class="w3-btn w3-indigo" type="button" id="buttonQrCd" >Click to generate QR Code</button>
        
-        <input  clss="w3-input w3-border w3-round-large"  type="text" value="Finish Step 1" id="Link2Execute" size="80">
+        <input  clss="w3-input w3-border w3-round-large"  type="text" value="Debug Info" id="txtLink2Execute" size="80">
 
 
 <br>
