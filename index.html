@@ -22,29 +22,32 @@
  function OnTypingPhoneNum() {
        var PhNumbervalue = $("#PhNumber").val();
        
-       //remove everythinge except digits
-       ClnPhNumber = PhNumbervalue.replace(/[^\d]/g, '');
-        //remove leading 00
-        if(ClnPhNumber[0] == '0' && ClnPhNumber[1]== '0')  ClnPhNumber=ClnPhNumber.slice(2);
-        // Add + as we had removed it earlier
-        if(ClnPhNumber[0] !=  '+' )  ClnPhNumber="+"+ClnPhNumber;
-              
-       // $("#txtLink2Execute").val("https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!"); 
-        Link2Execute = "https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!";
-        document.getElementById("buttonMesg").innerText  = "Click to send 'Hi!' to "+ClnPhNumber;
-        document.getElementById("buttonQrCd").innerText =  "Click to generate QR Code to message " + ClnPhNumber;
-      
-        // if (ClnPhNumber.length > 5) {         	
-        //     document.getElementById("buttonMesg").disabled = false;
-        //  }
+       // Normalize the phone number    
+       ClnPhNumber = PhNumbervalue.replace(/[^\d]/g, '');    //remove everythinge except digits
+       ClnPhNumber = ClnPhNumber.replace(/^0*/g,'');         //remove leading 00
+       ClnPhNumber="+"+ClnPhNumber;                          // Add + prefix
+  
+       Link2Execute = "https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!";
+       document.getElementById("buttonMesg").innerText  = "Click to send 'Hi!' to "+ClnPhNumber;
+       document.getElementById("buttonQrCd").innerText =  "Generate QR Code to message " + ClnPhNumber;
 
-  };
+       document.getElementById('debugInfo').innerHTML = Link2Execute;
+        
+       if (ClnPhNumber.length < 5) {         	
+       	    document.getElementById("buttonMesg").innerText  = "Add more digits ";
+            document.getElementById("buttonQrCd").innerText =  "Add more digits...";
+            document.getElementById("buttonMesg").disabled = true;
+            document.getElementById("buttonQrCd").disabled = true;
+        }else{         	
+            document.getElementById("buttonMesg").disabled = false;
+            document.getElementById("buttonQrCd").disabled = false;
+        }
+};
   
   
 $(document).ready(function(){
   
     $('#buttonMesg').click(function(e) {       
-        //window.location.replace($("#txtLink2Execute").val()); 
         window.location.replace(Link2Execute);     
     });
     
@@ -55,23 +58,16 @@ $(document).ready(function(){
 });
 </script> 
 </head>
-<body oninput="OnTypingPhoneNum()">
+<body onload="OnTypingPhoneNum()">
 	 <h2 class="w3-center">Send Whatsapp Message to numbers</h2>
    <h3 class="w3-center">...without having to add a contact !</h3>
 
 <form class="w3-container">	
-   <div class="w3-panel w3-teal"> <p>Insert the phone number in format : <b> +&lt;countrycode&gt;&lt;Rest of digits&gt;</b> :</p> </div>  
+   <div class="w3-panel w3-teal"> <p>Insert the phone number in format : <br><b> +&lt;countrycode&gt;&lt;Rest of digits&gt;</b> :</p> </div>  
          
-       <input class="w3-input w3-border w3-round-large"  type="text" value="+60-8675-3-0-9" id="PhNumber" oninput="OnTypingPhoneNum()"> <br>
-       
-<br>
-       <button class="w3-btn w3-indigo" type="button" id="buttonMesg" >Click to send "Hi!" on WhatsApp</button> <br><br>
-
-       <button class="w3-btn w3-indigo" type="button" id="buttonQrCd" >Click to generate QR Code</button>
-       
-        <!--input  clss="w3-input w3-border w3-round-large"  type="text" value="Debug Info" id="txtLink2Execute" size="80"!-->
-
-
+   <input class="w3-input w3-border w3-round-large"  type="text" value="+60-8675-3-0-9" id="PhNumber" oninput="OnTypingPhoneNum()"> <br><br>
+   <button class="w3-btn w3-indigo" type="button" id="buttonMesg" >Click to send "Hi!" on WhatsApp</button> <br><br>
+   <button class="w3-btn w3-indigo" type="button" id="buttonQrCd" >Click to generate QR Code</button>
 <br>
 <br>
 <div id="qrcodeCanvas"></div>
@@ -80,6 +76,8 @@ $(document).ready(function(){
 
 
 <br><br><br><br><br><br>
+<font size="1" color="lightgray"><div id="debugInfo"></div></font>
+<br>
 <div align="right"><font size="2" color="red"><a href="https://github.com/arun-ks/WhatsAppNonContactMesg">Source</a>   </font>  </div>
 </body>
 </html>
