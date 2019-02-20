@@ -28,8 +28,8 @@
        ClnPhNumber="+"+ClnPhNumber;                          // Add + prefix
   
        Link2Execute = "https://api.whatsapp.com/send?phone="+ClnPhNumber+"&text=Hi!";
-       document.getElementById("buttonMesg").innerText  = "Click to send 'Hi!' to "+ClnPhNumber;
-       document.getElementById("buttonQrCd").innerText =  "Generate QR Code to message " + ClnPhNumber;
+ //      document.getElementById("buttonMesg").innerText  = "Click to send 'Hi!' to "+ClnPhNumber;
+ //      document.getElementById("buttonQrCd").innerText =  "Generate QR Code to message " + ClnPhNumber;
 
        document.getElementById('debugInfo').innerHTML = Link2Execute;
         
@@ -66,8 +66,8 @@ $(document).ready(function(){
    <div class="w3-panel w3-teal"> <p>Insert the phone number in format : <br><b> +&lt;countrycode&gt;&lt;Rest of digits&gt;</b> :</p> </div>  
          
    <input class="w3-input w3-border w3-round-large"  type="text" value="+60-8675-3-0-9" id="PhNumber" oninput="OnTypingPhoneNum()"> <br><br>
-   <button class="w3-btn w3-indigo" type="button" id="buttonMesg" >Click to send "Hi!" on WhatsApp</button> <br><br>
-   <button class="w3-btn w3-indigo" type="button" id="buttonQrCd" >Click to generate QR Code</button>
+   <button class="w3-btn w3-indigo" type="button" id="buttonMesg" >Click to send "Hi!"(works only on devices with WhatsApp installed)</button> <br><br>
+   <button class="w3-btn w3-indigo" type="button" id="buttonQrCd" >Generate QR Code, to be scanned by devices with WhatsApp Installed</button>
 <br>
 <br>
 <div id="qrcodeCanvas"></div>
