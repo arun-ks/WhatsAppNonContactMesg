@@ -3,7 +3,8 @@
 <html>
 <head>
 	
-<title>Send Message to Whatsapp User without adding contact</title>    
+<title>Whatsapp without adding contact</title>    
+  <link rel="icon" href="src/favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -39,6 +40,8 @@
             document.getElementById("buttonMesg").disabled = true;
             document.getElementById("buttonQrCd").disabled = true;
         }else{         	
+        	  document.getElementById("buttonMesg").innerText  = "Send 'Hi' on WhatsApp";
+            document.getElementById("buttonQrCd").innerText =  "Generate QR Code";
             document.getElementById("buttonMesg").disabled = false;
             document.getElementById("buttonQrCd").disabled = false;
         }
@@ -59,15 +62,20 @@ $(document).ready(function(){
 </script> 
 </head>
 <body onload="OnTypingPhoneNum()">
-	 <h2 class="w3-center">Send Whatsapp Message to numbers</h2>
-   <h3 class="w3-center">...without having to add a contact !</h3>
+	 <h2 class="w3-center">Quick Whatsapp Message</h2>
+   <h3 class="w3-center">...& avoid new Contact Creation</h3>
 
 <form class="w3-container">	
-   <div class="w3-panel w3-teal"> <p>Insert the phone number in format : <br><b> +&lt;countrycode&gt;&lt;Rest of digits&gt;</b> :</p> </div>  
-         
-   <input class="w3-input w3-border w3-round-large"  type="text" value="+60-8675-3-0-9" id="PhNumber" oninput="OnTypingPhoneNum()"> <br><br>
-   <button class="w3-btn w3-indigo" type="button" id="buttonMesg" >Click to send "Hi!"(works only on devices with WhatsApp installed)</button> <br><br>
-   <button class="w3-btn w3-indigo" type="button" id="buttonQrCd" >Generate QR Code, to be scanned by devices with WhatsApp Installed</button>
+	
+   <div class="w3-panel w3-teal"> <p>Insert the phone number to WhatsApp in format : <br><b> +&lt;countrycode&gt;&lt;Rest of digits&gt;</b> :</p> </div>  
+   <input class="w3-input w3-border w3-round-large"  type="text" value="+60-8675-3-0-9" id="PhNumber" oninput="OnTypingPhoneNum()">
+   
+   <div class="w3-panel w3-teal"> Option 1 - If you are using a WhatsApp Installed device</div> 
+   <button class="w3-btn w3-indigo" type="button" id="buttonMesg">Send 'Hi' on WhatsApp</button><br>
+    
+   <div class="w3-panel w3-teal"> Option 2 - Generate QR Code to trigger Whatsapp Message</div>
+   <button class="w3-btn w3-indigo" type="button" id="buttonQrCd">Generate QR Code</button> 
+   
 <br>
 <br>
 <div id="qrcodeCanvas"></div>
